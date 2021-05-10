@@ -1,0 +1,1512 @@
+<?php
+ob_start();
+define('API_KEY','1737579247:AAHYI_jMCM-fGSWs8AE1eGO_jkj5DSxRylE');
+$admin = "1459858030";
+$admin2 = "1459858030";
+$channel = "@FAKT24TV";
+
+/*
+Kod muallfligi : @Inforte ga tegishli
+Kanal : @Uz_Coderlar
+Hamkor : @Vicious_News va @It_FactsUz
+*/
+
+
+function ty($ch){ 
+return bot('sendChatAction', [
+'chat_id' => $ch,
+'action' => 'typing',
+]);
+}
+
+function bot($method,$datas=[]){
+    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+    $res = curl_exec($ch);
+    if(curl_error($ch)){
+        var_dump(curl_error($ch));
+    }else{
+        return json_decode($res);
+    }
+}
+
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$mid = $message->message_id;
+$name = $message->from->first_name;
+$message_id=$message->message_id;
+$cid = $message->chat->id;
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$from_id = $message->from->id;
+$user = $message->from->username;
+$chat_id = $message->chat->id;
+$text = $message->text;
+$cid = $message->chat->id;
+$uid= $message->from->id;
+$cqid = $update->callback_query->id;
+$ccid = $update->callback_query->message->chat->id;
+$cuid = $update->callback_query->message->from->id;
+$mid = $message->message_id;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$cuseri = $update->callback_query->message->chat->username;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$ci = $message->username;
+$fromid = $message->from->id;
+$cid = $message->chat->id;
+$user = $message->chat->username;
+$cidtyp = $message->chat->type;
+$miid = $message->message_id;
+$tx = $message->text;
+$callback = $update->callback_query;
+$mmid = $callback->inline_message_id;
+$mes = $callback->message;
+$mid = $mes->message_id;
+$ctext = $mes->text;
+$data = $update->callback_query->data;
+$ci = $message->username;
+$from_id = $message->from->id;
+$tx = $message->text;
+$photo_id=$message->photo[1]->file_id;
+mkdir("base");
+mkdir("step");
+$null = "null";
+$joy = file_get_contents("$cid/$cid.joy");
+if(file_exists("base/$cid.elon.dat")){
+file_get_contents("base/$cid.elon.dat");
+}else{
+file_put_contents("base/$cid.elon.dat",$null);
+}
+if(file_exists("base/$cid.dat")){
+file_get_contents("base/$cid.dat");
+}else{
+file_put_contents("base/$cid.dat",$null);
+}
+if(file_exists("base/holat.dat")){
+file_get_contents("base/holat.dat");
+}else{
+file_put_contents("base/holat.dat","on");
+}
+$step = file_get_contents("step/$cid.step");
+$first = "E‘lon berish";
+$otmen = "🚫 Bekor qilish";
+$second = "Mening e‘lonlarim";
+$third = "Yordam";
+$fife = "Statistika";
+$stat = file_get_contents("base/bot-holati.dat");
+$six = "Buyurtma berish";
+$main = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"$first"]],
+[['text'=>"$second"],['text'=>"$six"],],
+[['text'=>"$third"],['text'=>"$fife"],],
+]
+]);
+
+$services = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"Web sayt"],['text'=>"Telegram bot"],],
+[['text'=>"Mobil ilova"],['text'=>"Proyekt davom ettirish"],],
+[['text'=>"🚫 Bekor qilish"]],
+]
+]);
+
+$admins = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"Xabar yuborish"],['text'=>"Forward yuborish"]],
+[['text'=>"Barcha e'lonlar"],['text'=>"Bajarilgan e'lonlar"]],
+[['text'=>"O‘chirish | $stat"],['text'=>"Statistika"]],[['text'=>"🚫 Bekor qilish"]],
+]
+]);
+
+$status = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"🔒 O'chirish"],
+['text'=>"🔓 Yoqish"]],
+]
+]); 
+
+$admo = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"Bosh menyu"]],
+]
+]);
+
+$cancel = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"🚫 Bekor qilish"]],
+]
+]);
+
+$kick = json_encode([
+'remove_keyboard'=>true,
+]);
+
+$accept = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'✅ Ha', 'callback_data' => "yes"],     
+['text'=>'🚫 Yo‘q', 'callback_data' => "no"]]
+]   
+]);
+
+$page = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Next page', 'callback_data' => "next"],     
+['text'=>'Previous page', 'callback_data' => "null"]],
+[['text'=>'Back', 'callback_data' => "back"],
+]]
+]);
+
+$page2 = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Next page', 'callback_data' => "next-2"],     
+['text'=>'Previous page', 'callback_data' => "main"]],
+[['text'=>'Back', 'callback_data' => "back"],
+]]
+]);
+
+$page3 = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Next page', 'callback_data' => "next-3"],     
+['text'=>'Previous page', 'callback_data' => "next"]],
+[['text'=>'Back', 'callback_data' => "back"],
+]]
+]);
+
+$page4 = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Next page', 'callback_data' => "next-4"],     
+['text'=>'Previous page', 'callback_data' => "next-2"]],
+[['text'=>'Back', 'callback_data' => "back"],
+]]
+]);
+
+$page5 = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Next page', 'callback_data' => "null"],     
+['text'=>'Previous page', 'callback_data' => "next-3"]],
+[['text'=>'Back', 'callback_data' => "back"],
+]]
+]);
+
+$comments = json_encode([   
+'inline_keyboard'=>[   
+[['text'=>'Add comments', 'url' => "https://www.tg-bots.tk"]],     
+]   
+]);
+
+$acc = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"✅ Ha"],
+['text'=>"🚫 Yo‘q"]],
+]
+]); 
+
+$webs = json_encode([
+'resize_keyboard'=>true,
+'keyboard'=>[
+[['text'=>"✅ Ha albatta"],
+['text'=>"🚫 Yo‘q"]],
+]
+]); 
+
+$step2 = file_get_contents("step/$ccid.step");
+$from_id = $message->from->id;
+$ch = "@FAKT24TV";
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=$ch&user_id=".$from_id);
+if($message && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"*⚠ To use this bot, first subscribe to the channels below and then you can use the bot!*",
+      'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([
+        'inline_keyboard'=>[
+[['text'=>"Go to channel",'url'=>"https://t.me/FAKT24TV"]],
+[['text'=>"Go to channel",'url'=>"https://t.me/joinchat/AAAAAEmItagO8a4cioRVXw"]],    
+[['text'=>"✅ Check status",'url'=>"https://t.me/Tg_Elonbot?start="]]    
+        ]
+    ])
+]);return false;
+}
+if($tx=="/start" or $tx==$otmen){
+unlink("step/$cid.step");
+unlink("step/$cid.step");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"👋 <b>Assalomu alaykum $name botimizga xush kelibsiz!</b>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$main,
+]);
+}
+if($tx==$first){
+$holat = file_get_contents("base/holat.dat");
+if($holat=="on"){
+file_put_contents("step/$cid.step","username");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"📃 <i>E‘lon berish uchun botingizni USERNAMEsini yozing:</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}else{
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<i>🚫 Xatolik!</i>
+😕 <b>Bazaga ulanish bilan muammo yuzaga keldi. Yoxud bot ta‘mirlash jarayonida!</b>
+<b>Warning:</b> mysqli_connect(): (HY000/2002): Connection refused in /www/var/data/x_trading/script-of-trading/3719179.php on line 8
+Could not connect:",
+      'parse_mode'=>"html",
+      'reply_markup'=>$main,
+]);
+sleep(1);
+bot('deleteMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+]);
+unlink("step/$cid.step");
+}
+}
+if($tx==$six){
+file_put_contents("step/$cid.step","xizmat");
+$holat = file_get_contents("base/holat.dat");
+if($holat=="on"){
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"📃 <i>Buyurtma berish uchun kerakli xizmat turini tanlang:</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$services,
+]);
+}else{
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<i>🚫 Xatolik!</i>
+😕 <b>Bazaga ulanish bilan muammo yuzaga keldi. Yoxud bot ta‘mirlash jarayonida!</b>
+<b>Warning:</b> mysqli_connect(): (HY000/2002): Connection refused in /www/var/data/x_trading/script-of-trading/3719179.php on line 8
+Could not connect:",
+      'parse_mode'=>"html",
+      'reply_markup'=>$main,
+]);
+sleep(1);
+bot('deleteMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+]);
+}
+}
+if($tx=="Web sayt" and $step=="xizmat"){unlink("base/for-channel.dat");
+file_put_contents("step/$cid.step","web");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"🌏 Qanday web sayt kerak batafsil yozing:
+
+📃 Masalan : Savdo-sotiq web sayti, Job Portali kerak sayt Pythonda tuzilishi kerak va hk...",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+if($step=="web" or $step == "web"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-turi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","cost");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+💸 <i>Endi buyurtma uchun ajratgan mablag'ingizni yozing!</i>
+💰 Masalan : 300 ming so'm yoki kelishamiz!",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="cost" or $step == "cost"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-narxi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","hodim");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+<i> 👨‍💼 Kerakli ishchi tajribasini yozing:</i>
+
+<i>⏳ Masalan : 2 yillik tajribaga ega bo'lishi zarur, Python va boshqa dasturlash tillarini bilishi kerak!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="hodim" or $step == "hodim"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-hodimi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","talab");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+📛 <i> Agar qo'shimcha talablaringiz bo'lsa yozib yuboring, agar yo'q bo'lsa shunchaki ''YO'Q'' so'zini yuboring!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="talab" or $step == "talab"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-talabi.$cid.dat",$tx);
+unlink("step/$cid.step");
+$turi = file_get_contents("base/xizmat-turi.$cid.dat");
+$costi = file_get_contents("base/xizmat-narxi.$cid.dat");
+$hodimi = file_get_contents("base/xizmat-hodimi.$cid.dat");
+$talabi = file_get_contents("base/xizmat-talabi.$cid.dat");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"✅ <b>Buyurtmangiz deyarli tayyor bo'ldi:</b>
+
+<b>🌏 Web sayt buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturchi bilishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>📃 Agar barchasi to'g'ri bo'lsa ''✅ Ha'' tugmasini bosing, muammo topgan bo'lsangiz qayta yozish uchun ''🚫 Yo'q'' tugmasiga bosing!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$acc2,
+]);
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+'text'=>"📃 <b> Buyurtma berishdi ✅</b>
+
+<b>👤 Buyurtmachi : $name</b>
+
+<b>🌏 Web sayt buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturchi bilishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>⏳ Kanalga yuboramizmi?</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$webs,
+]);
+file_put_contents("base/for-channel.dat","
+<b>🌏 Web sayt buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturchi bilishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#web #sayt #verstka #sozlash #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+file_put_contents("base/for-web.$cid.dat","
+<b>🌏 Web sayt buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturchi bilishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#web #sayt #verstka #sozlash #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+}
+}
+if($tx=="Mobil ilova" and $step=="xizmat"){unlink("base/for-channel.dat");
+file_put_contents("step/$cid.step","ilova");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>📱 Qanday ilova kerak batafsil yozing:</b>
+
+<i>📃 Masalan : Saytning rasmiy ilovasi yoki mobil o'yin ilovasi va hk...</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+if($step=="ilova" or $step == "ilova"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-turi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","cost2");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+💸 <i>Endi buyurtma uchun ajratgan mablag'ingizni yozing!</i>
+💰 Masalan : 100 ming so'm yoki kelishamiz!",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="cost2" or $step == "cost2"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-narxi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","languages");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+<i>📝 Yaxshi mobil ilovangiz qaysi dasturlash tilida yozilishini belgilang:</i>
+
+<i>⏳ Masalan : CSharp, Kotlin, C++, Java ...</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="languages" or $step == "languages"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-hodimi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","talab2");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+📛 <i> Agar qo'shimcha talablaringiz bo'lsa yozib yuboring, agar yo'q bo'lsa shunchaki ''YO'Q'' so'zini yuboring!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="talab2" or $step == "talab2"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-talabi.$cid.dat",$tx);
+unlink("step/$cid.step");
+$turi = file_get_contents("base/xizmat-turi.$cid.dat");
+$costi = file_get_contents("base/xizmat-narxi.$cid.dat");
+$hodimi = file_get_contents("base/xizmat-hodimi.$cid.dat");
+$talabi = file_get_contents("base/xizmat-talabi.$cid.dat");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"✅ <b>Buyurtmangiz deyarli tayyor bo'ldi:</b>
+
+<b>📱 Mobil ilova buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Ilova dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>📃 Agar barchasi to'g'ri bo'lsa ''✅ Ha'' tugmasini bosing, muammo topgan bo'lsangiz qayta yozish uchun ''🚫 Yo'q'' tugmasiga bosing!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$acc2,
+]);
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+'text'=>"📃 <b> Buyurtma berishdi ✅</b>
+
+<b>👤 Buyurtmachi : $name</b>
+
+<b>📱 Mobil ilova buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Mobil ilova dasturlanishi kerak  : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>⏳ Kanalga yuboramizmi?</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$webs,
+]);
+file_put_contents("base/for-channel.dat","
+#Mobil ilova kerak !!!
+
+<b>📱 Mobil ilova buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Mobil ilova dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#mobil #ilova #csharp #java #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+file_put_contents("base/for-ilova.$cid.dat","<b>📱 Mobil ilova buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Ilova dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#mobil #ilova #csharp #java #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+}
+}
+if($tx=="Telegram bot" and $step=="xizmat"){unlink("base/for-channel.dat");
+file_put_contents("step/$cid.step","bot");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>👀 Qanday telegram bot kerak batafsil yozing:</b>
+
+<i>📃 Masalan : Pul ishlash boti, sayt rasmiy boti, Guruh boshqaruvchi bot va hk...</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+if($step=="bot" or $step == "bot"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-turi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","cost1");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+💸 <i>Endi buyurtma uchun ajratgan mablag'ingizni yozing!</i>
+💰 Masalan : 300 ming so'm yoki kelishamiz!",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="cost1" or $step == "cost1"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-narxi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","language");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+<i>📝 Yaxshi telegram bot qaysi dasturlash tilida yozilishini belgilang:</i>
+
+<i>⏳ Masalan : PHP, NODEJS, PYTHON...</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="language" or $step == "language"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-hodimi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","talab1");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+📛 <i> Agar qo'shimcha talablaringiz bo'lsa yozib yuboring, agar yo'q bo'lsa shunchaki ''YO'Q'' so'zini yuboring!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="talab1" or $step == "talab1"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-talabi.$cid.dat",$tx);
+unlink("step/$cid.step");
+$turi = file_get_contents("base/xizmat-turi.$cid.dat");
+$costi = file_get_contents("base/xizmat-narxi.$cid.dat");
+$hodimi = file_get_contents("base/xizmat-hodimi.$cid.dat");
+$talabi = file_get_contents("base/xizmat-talabi.$cid.dat");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"✅ <b>Buyurtmangiz deyarli tayyor bo'ldi:</b>
+
+<b>📝 Telegram-bot buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Bot dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>📃 Agar barchasi to'g'ri bo'lsa ''✅ Ha'' tugmasini bosing, muammo topgan bo'lsangiz qayta yozish uchun ''🚫 Yo'q'' tugmasiga bosing!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$acc2,
+]);
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+'text'=>"📃 <b> Buyurtma berishdi ✅</b>
+
+<b>👤 Buyurtmachi : $name</b>
+
+<b>📝 Telegram-bot buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturlanishi kerak  : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<i>⏳ Kanalga yuboramizmi?</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$webs,
+]);
+file_put_contents("base/for-channel.dat","
+#Telegram-bot kerak !!!
+
+<b>📝 Telegram-bot buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#telegram #bot #php #python #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+file_put_contents("base/for-bot.$cid.dat","<b>📝 Telegram-bot buyurtmasi : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Dasturlanishi kerak : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#telegram #bot #php #python #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+}
+}
+if($tx=="Proyekt davom ettirish" and $step=="xizmat"){
+unlink("base/for-channel.dat");
+file_put_contents("step/$cid.step","continue");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>📃 Qanday proyektga qiynalyabsiz yoki qanday loyihani davom ettirish kerak:</b>
+
+<i>📃 Masalan : Web saytimni davom ettirishga sherik kerak... yoki Mobil ilova tuzyabman shunga yordam kerak...</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+if($step=="continue" or $step == "continue"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-turi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","cost3");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+💸 <i>Endi sheriklik uchun ajratgan mablag'ingizni yozing!</i>
+💰 Masalan : oldindan 80 ming so'm qolganini pulni olgach bo'lishaman!",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="cost3" or $step == "cost3"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-narxi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","langu");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+<i>📝 Yaxshi loyihangizni qaysi dasturlash tilida yozayotganingizni belgilang:</i>
+
+<i>⏳ Masalan : Javascript, Python, PHP ...</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="langu" or $step == "langu"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-hodimi.$cid.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","talab3");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yaxshi qabul qilindi!</b>
+
+<b>📋 Endi sherigingizni tajribasi va ma'lumotini yozing: Masalan - Oliy ma'lumotli bo'lishi kerak, Javascriptdan 2 yillik tajribaga ega bo'lishi kerak...</b>
+
+📛 <i> Agar qo'shimcha talablaringiz yoki takliflaringiz bo'lsa yozib yuboring, agar yo'q bo'lsa shunchaki ''YO'Q'' so'zini yuboring!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$cancel,
+]);
+}
+}
+if($step=="talab3" or $step == "talab3"){
+if($tx=="🚫 Bekor qilish"){}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+]);
+file_put_contents("base/xizmat-talabi.$cid.dat",$tx);
+unlink("step/$cid.step");
+$turi = file_get_contents("base/xizmat-turi.$cid.dat");
+$costi = file_get_contents("base/xizmat-narxi.$cid.dat");
+$hodimi = file_get_contents("base/xizmat-hodimi.$cid.dat");
+$talabi = file_get_contents("base/xizmat-talabi.$cid.dat");
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"✅ <b>E'loningiz deyarli tayyor bo'ldi:</b>
+
+👨‍💻 <b>Birga ishlash taklifi bayonoti : </b>$turi
+
+<b>💰 Xizmati uchun ajratilgan budjet : </b>$costi
+
+<b> 👨‍💻 Yordamchi sherik haqida : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar va takliflar : </b>$talabi
+
+<i>📃 Agar barchasi to'g'ri bo'lsa ''✅ Ha'' tugmasini bosing, muammo topgan bo'lsangiz qayta yozish uchun ''🚫 Yo'q'' tugmasiga bosing!</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$acc2,
+]);
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+'text'=>"📃 <b> Buyurtma berishdi ✅</b>
+
+<b>👤 Buyurtmachi : $name</b>
+
+<b>🎓 Yordamchi sherik kerak : </b>$turi
+
+<b>💰 Oldindan beriladigan pul mablag' : </b>$costi
+
+<b> 👤 Sherigimni tajribasi : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar va takliflar : </b>$talabi
+
+<i>⏳ Kanalga yuboramizmi?</i>",
+'parse_mode'=>"html",
+'reply_markup'=>$webs,
+]);
+file_put_contents("base/for-channel.dat","
+
+<code>🎓 Loyiha davom ettirishga sherik kerak !!!</code>
+
+<b>👤 Buyurtmachi : $name</b>
+
+<b> 🎓 Usernamesi :</b> @$user
+
+<b>🎓 Yordamchi sherik kerak : </b>$turi
+
+<b>💰 Oldindan beriladigan pul mablag' : </b>$costi
+
+<b> 👤 Sherigimni tajribasi : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar va takliflar : </b>$talabi
+
+#sherik #kerak #dasturchi #oliy #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+file_put_contents("base/for-sherik.$cid.dat","<b>🎓 Sherik yordami kerak </b>$turi
+
+<b>💰 Xizmati uchun oldindan beriladigan budjet : </b>$costi
+
+<b> 👤 Sherigimni tajribasi : </b>$hodimi
+
+<b>📋 Qo'shimcha talablar va takliflar : </b>$talabi
+
+<b>👤 Buyurtmachi : </b>@$user
+
+#sherik #kerak #dasturchi #oliy #zakas #sorov
+
+<u>• Powered By :</u> $channel");
+}
+}
+if($tx=="✅ Ha albatta" and $cid==$admin){
+$sorov = file_get_contents("base/for-channel.dat");
+if($sorov=="null"){
+bot('sendMessage',[
+'chat_id'=>$admin,
+'message_id'=>$mid,
+'text'=>"<b>📛 Yuborish uchun hech qanday e'lon mavjud emas!</b>",
+'parse_mode'=>"html",
+]);
+}else{
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"<b>✅ Yubordim</b>",
+'parse_mode'=>"html",
+'reply_markup'=>$kick,
+]);
+$zakas = file_get_contents("base/for-channel.dat");
+bot('sendMessage',[
+'chat_id'=>$channel,
+'message_id'=>$mid,
+'text'=>$zakas,
+'parse_mode'=>"html",
+'reply_markup'=>$comments,
+]);
+file_put_contents("base/for-channel.dat","null");
+}
+}
+if($step == "username"){
+if($tx==$otmen){
+}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+]);
+file_put_contents("base/$cid.user.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","vazifasi");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"<b>✅ Yaxshi qabul qilindi</b>
+
+📃 <i>Endi esa botingizni Vazifasini yozing:
+Masalan: Pul ishlash boti</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+}
+if($step == "vazifasi"){
+if($tx==$otmen){
+}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+]);
+file_put_contents("base/$cid.vazifasi.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","dasturlangan");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"<b>✅ Yaxshi qabul qilindi</b>
+
+📃 <i>Endi esa botingizni Dasturlangan tilini yozing:
+Masalan: Python yoki NodeJS</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+}
+if($step == "dasturlangan"){
+if($tx==$otmen){
+}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+]);
+file_put_contents("base/$cid.dasturlangan.dat",$tx);
+unlink("step/$cid.step");
+file_put_contents("step/$cid.step","narxi");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"<b>✅ Yaxshi qabul qilindi</b>
+
+📃 <i>Endi esa botingizni Narxini yozing:
+Masalan: 100 ming so‘m kelishamiz yoki kami bor</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$cancel,
+]);
+}
+}
+if($step == "narxi"){
+if($tx==$otmen){
+}else{
+bot('sendMessage',[
+'chat_id'=>$admin,
+]);
+bot('sendMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+'text'=>"⏳",
+'reply_markup'=>$kick,
+]);
+bot('deleteMessage',[
+'chat_id'=>$cid,
+'message_id'=>$mid,
+]);
+file_put_contents("base/$cid.narxi.dat",$tx);
+unlink("step/$cid.step");
+$buser = file_get_contents("base/$cid.user.dat");
+$bvazifa = file_get_contents("base/$cid.vazifasi.dat");
+$bdast = file_get_contents("base/$cid.dasturlangan.dat");
+$bnarxi = file_get_contents("base/$cid.narxi.dat");
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"<b>🤖 Bot usernamesi :</b> $buser
+
+<b>🤖 Bot vazifasi :</b> $bvazifa
+
+<b>🤖 Bot Dasturlangan tili :</b> $bdast
+
+<b>🤖 Bot Narxi :</b> $bnarxi
+
+<b>👨‍💻 Bot Dasturchisi :</b> @$user
+
+<i>⌛️ Barcha ma‘lumotlar to‘g‘ri ekanini tasdiqlay olasizmi?</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$accept,
+]);
+$all = "<b>🤖 Bot usernamesi :</b> $buser
+
+<b>🤖 Bot vazifasi :</b> $bvazifa
+
+<b>🤖 Bot Dasturlangan tili :</b> $bdast
+
+<b>🤖 Bot Narxi :</b> $bnarxi";
+      $base = file_get_contents("base/$cid.dat");
+      $order = "n $all";
+      $handle = fopen($base, 'a+');
+      fwrite($handle, $order);
+      fclose($handle);
+bot('sendMessage',[
+'chat_id'=>$admin,
+'text'=>"<i>📃 Yangi e‘lon !!! Hurmatli admin!</i>
+
+<b>🔎 Foydalanuvchi :</b> $name
+
+ <b>🤖 Bot usernamesi :</b> $buser
+
+<b>🤖 Bot vazifasi :</b> $bvazifa
+
+<b>🤖 Bot Dasturlangan tili :</b> $bdast
+
+<b>🤖 Bot Narxi :</b> $bnarxi
+
+<b>👨‍💻 Bot Dasturchisi :</b> @$user
+
+<i>⌛️ E‘lon kanalga yuborilaversinmi</i>",
+      'parse_mode'=>"html",
+      'reply_markup'=>$acc,
+]);
+$all = "<b>🤖 Bot usernamesi :</b> $buser
+
+<b>🤖 Bot vazifasi :</b> $bvazifa
+
+<b>🤖 Bot Dasturlangan tili :</b> $bdast
+
+<b>🤖 Bot Narxi :</b> $bnarxi
+
+<b>👨‍💻 Bot Dasturchisi :</b> @$user
+
+#bot #boteloni #dasturchi #botlar #savdosi
+
+<u>• Powered By :</u> $channel";
+      $base = file_get_contents("base/$cid.dat");
+      $order = "n $all";
+      $handle = fopen($base, 'a+');
+      fwrite($handle, $order);
+      fclose($handle);
+      $rand = rand(1,700);
+      file_put_contents("base/randoms.dat",$rand);
+     $cloud = file_get_contents("base/randoms.dat");
+     file_put_contents("base/$cloud.dat",$all);
+    file_put_contents("base/$cid.dat",$all);
+    file_put_contents("base/cloud.$cloud.dat",$name);
+    file_put_contents("base/cloud-id.$cloud.dat",$cid);
+    file_put_contents("base/$cloud.user.dat",$user);
+}
+}
+if($x==$second or $tx=="Mening e‘lonlarim"){
+$results = file_get_contents("base/$cid.dat");
+if($results=="" or $results=="null"){
+ bot('sendMessage',[
+    'chat_id'=>$cid,
+    'text'=>"<i>😕 Sizda hali berilgan e‘lonlar mavjud emas!</i>",
+    'parse_mode'=>"html",
+'reply_markup'=>$main,
+]);
+}else{
+$results = file_get_contents("base/$cid.dat");
+bot('sendMessage',[
+    'chat_id'=>$cid,
+    'text'=>"📛 <i>Bergan eng so‘ngi e‘loningiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+    'parse_mode'=>"html",
+'reply_markup'=>$page,
+]);
+}
+}
+if($data=="main"){
+$results = file_get_contents("base/$ccid.dat");
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"📛 <i>Bergan eng so‘ngi e‘loningiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+'reply_markup'=>$page,
+]);
+}
+if($data=="back"){
+bot('deleteMessage',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+]);
+bot('sendMessage',[1d,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"<i>Bosh sahifa</i>",
+'reply_markup'=>$main,
+]);
+}
+if($data=="next"){
+$results = file_get_contents("base/for-bot.$ccid.dat");
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"📛 <i>Bergan eng so‘ngi telegram-bot buyurtmangiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+'reply_markup'=>$page2,
+]);
+}
+if($data=="next-2"){
+$results = file_get_contents("base/for-web.$ccid.dat");
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"📛 <i>Bergan eng so‘ngi web sayt buyurtmangiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+'reply_markup'=>$page3,
+]);
+}
+if($data=="next-3"){
+$results = file_get_contents("base/for-sherik.$ccid.dat");
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"📛 <i>Bergan eng so‘ngi sheriklik buyurtmangiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+'reply_markup'=>$page4,
+]);
+}
+if($data=="next-4"){
+$results = file_get_contents("base/for-ilova.$ccid.dat");
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"📛 <i>Bergan eng so‘ngi mobil ilova buyurtmangiz :</i>
+
+➖➖➖➖➖➖➖➖➖➖
+$results
+➖➖➖➖➖➖➖➖➖➖",
+'reply_markup'=>$page5,
+]);
+}
+if($data=="yes"){
+bot('EditMessageText',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+'parse_mode'=>"html",
+'text'=>"<i>♻ So'rovingiz Moderatorlarga yuborildi ✅
+Tez orada ko‘rib chiqiladi agar moderatorlarimiz sizni e‘loningizni kanalga yuborish uchun yaroqli deb topsa kanalga yuboriladi aks holda yuborilmaydi va sizning buyrug‘ingiz bekor qilinadi!</i>",
+]);
+sleep(3);
+bot('DeleteMessage',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+]);
+bot('sendMessage',[
+    'chat_id'=>$ccid,
+    'text'=>"Bosh sahifa",
+   'parse_mode'=>"html",
+'reply_markup'=>$main,
+]);
+}
+if($data=="null"){
+bot('AnswerCallbackQuery',[
+'callback_query_id'=>$cqid,
+'text'=>"🚫 Boshqa sahifa yo‘q",
+'show_alert'=>false,
+]);
+}
+if($data=="no"){
+bot('AnswerCallbackQuery',[
+'callback_query_id'=>$cqid,
+'text'=>"♻ Qayta urinib ko'ring!",
+'show_alert'=>false,
+]);
+bot('DeleteMessage',[
+'chat_id'=>$ccid,
+'message_id'=>$message_id2,
+]);
+bot('sendMessage',[
+    'chat_id'=>$ccid,
+    'text'=>"Bosh sahifa",
+   'parse_mode'=>"html",
+'reply_markup'=>$main,
+]);
+$rom = file_get_contents("base/randoms.dat");
+$fr = file_get_contents("base/$rom.dat");
+$cloud = file_get_contents("base/cloud.$rom.dat");
+$clid = file_get_contents("base/cloud-id.$rom.dat");
+$felons = file_get_contents("base/$rom.dat");
+bot('sendMessage',[
+    'chat_id'=>$admin,
+    'text'=>"😕 Afsuski $cloud, o‘z e‘lonini keraksiz deb topdi va bekor qildi ✅
+
+<i>📃 Uning e‘loni :</i> $felons
+
+<b>📉 Status :</b> <i>Noaniq</i>",
+   'parse_mode'=>"html",
+'reply_markup'=>$admins,
+]);
+}
+if($tx=="✅ Ha" and $cid==$admin or $tx=="✅ Ha"  and $cid==$admin2){$rom = file_get_contents("base/randoms.dat");
+$fr = file_get_contents("base/$rom.dat");
+$cloud = file_get_contents("base/cloud.$rom.dat");
+$clid = file_get_contents("base/cloud-id.$rom.dat");
+$felons = file_get_contents("base/$rom.dat");
+bot('sendMessage',[
+    'chat_id'=>$cid,
+    'text'=>"<i>Yuborildi ✅</i>",
+   'parse_mode'=>"html",
+'reply_markup'=>$admins,
+]);
+sleep(1);
+$rom = file_get_contents("base/randoms.dat");
+$cloud = file_get_contents("base/cloud.$rom.dat");
+$damp = file_get_contents("base/$rom.user.dat");
+$dasturchi = str_replace("$dasturchi","","$damp");
+bot('sendMessage',[
+    'chat_id'=>$channel,
+    'text'=>$felons,
+   'parse_mode'=>"html",
+'reply_markup'=>json_encode([
+        'inline_keyboard'=>[
+[['text'=>"Sotib olish",'url'=> "https://t.me/$dasturchi"]],
+[['text'=>"Add comments",'url'=>"https://www.tg-bots.tk"]],
+        ]
+    ])
+]);
+}
+if($tx=="🚫 Yo‘q" and $cid==$admin or $tx=="🚫 Yo‘q"  and $cid==$admin2){
+bot('sendMessage',[
+    'chat_id'=>$cid,
+    'text'=>"<i>🚫 Bekor qilindi</i>",
+   'parse_mode'=>"html",
+'reply_markup'=>$admins,
+]);
+sleep(1);
+bot('deleteMessage',[
+    'chat_id'=>$cid,
+   'message_id'=>$mid,
+]);
+}
+$gruppa = file_get_contents("gruppa.db");
+$lichka = file_get_contents("lichka.db");
+$xabar = file_get_contents("xabarlar.txt");
+$type = $message->chat->type;
+$reks = file_get_contents("data/reklama.txt");
+if($type==$channel){
+if(strpos($gruppa,"$channel_id") !==false){
+}else{
+file_put_contents("gruppa.db","$gruppan$channel_id");
+}
+}
+if($type=="private"){
+if(strpos($lichka,"$cid") !==false){
+}else{
+file_put_contents("lichka.db","$lichkan$cid");
+}
+} 
+$reply = $message->reply_to_message->text;
+$rpl = json_encode([
+            'resize_keyboard'=>false,
+            'force_reply'=>true,
+            'selective'=>true
+        ]);
+
+	if($tx=="/send" and $cid == $admin or $tx=="Xabar yuborish" and $cid==$admin){
+  bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"Userlarga yuboriladigan xabar matnini kiriting! Bekor qilish uchun /cancel ni bosing.",
+    'parse_mode'=>"html",
+'reply_markup'=>$rpl,
+]);
+    file_put_contents("xabarlar.txt","user");
+}
+if($xabar=="user" and $cid == $admin){
+if($tx=="/cancel"){
+   bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"<i>🚫 Bekor qilindi!</i>",
+    'parse_mode'=>"html",
+]);
+  file_put_contents("xabarlar.txt","");
+}else{
+  $lich = file_get_contents("lichka.db");
+  $lichka = explode("n",$lich);
+  foreach($lichka as $lichkalar){
+  $okuser=bot("sendmessage",[
+    'chat_id'=>$lichkalar,
+    'text'=>$tx,
+    'parse_mode'=>'markdown'
+]);
+}
+if($okuser){
+  bot("sendmessage",[
+    'chat_id'=>$admin,
+    'text'=>"<i>📋 Barcha foydalanuvchilarga yetib bordi ✅</i>",
+    'parse_mode'=>'html',
+]);
+  file_put_contents("xabarlar.txt","");
+}
+}
+}
+
+	if($tx=="/forsend" and $cid==$admin or $tx=="Forward yuborish" and $cid==$admin){
+  bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"📉 <b>Foydalanuvchilarga yuborish kerak bo‘lgan xabarni menga yuboring men foydalanuvchilarga FORWARD tarzda yuboraman!</b>",
+    'parse_mode'=>"html",
+'reply_markup'=>$rpl,
+]);
+    file_put_contents("xabarlar.txt","forw");
+}
+if($xabar=="forw" and $cid == $admin){
+if($tx=="/no"){
+   bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"Bekor qilindi!",
+    'parse_mode'=>"html",
+]);
+  file_put_contents("xabarlar.txt","");
+}else{
+  $lich = file_get_contents("lichka.db");
+  $lichka = explode("n",$lich);
+  foreach($lichka as $lichkalar){
+  $oks=bot("forwardmessage",[
+    'from_chat_id'=>$admin,
+    'chat_id'=>$lichkalar,
+    'message_id'=>$mid,
+]);
+}
+if($oks){
+  bot("sendmessage",[
+    'chat_id'=>$admin,
+    'text'=>"<i>📃 Barcha foydalanuvchilarga yuborildi</i> ✅",
+    'parse_mode'=>'html',
+]);
+  file_put_contents("xabarlar.txt","");
+}
+}
+}
+if(mb_stripos($tx,"/msg")!==false and $cid=="$admin" or $cid=="$admin2"){
+$ex = explode("=",$tx);
+$res = bot('sendmessage',[
+'chat_id'=>$ex[1],
+'text'=>"<b>💬 Сообщение Админа #msg
+➖➖➖➖➖➖➖➖➖➖➖</b>
+<i>$ex[2]</i>",
+'parse_mode'=>'html',
+]);
+if($res->ok){
+bot('sendmessage',[
+'chat_id'=>$cid,
+'text'=>"<b>✅ Xabaringiz Yuborildi!</b>",
+'parse_mode'=>'html',
+]);
+}else{
+bot('sendmessage',[
+'chat_id'=>$cid,
+'text'=>"<i>❌ Yuborilmadi!</i>",
+'parse_mode'=>'html',
+]);
+}
+}
+if($tx=="Yordam"){
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"📃 <i>Botdan foydalanish tartibi juda oddiy:</i>
+
+🤑 <b>Bot sotish</b>
+<b>🔎 Agar sizda telegram-botingiz bo'lsayu ammo unga haridor qidirayotgan bo'lsangiz bu aynan siz uchun!..
+Demak ''E‘lon berish'' tugmachasiga bosasiz so'ralgan ma‘lumotlaringizni kiritasiz va qarabsizki tez orada sizning e‘loningiz </b>$channel <b>kanaliga borib tushadi!</b>
+
+<b>🛒 Buyurtma berish</b>
+<i>💰 Agar sizga web-sayt yoki telegram botlar kerak bo'lsa ushbu istagingizni bemalol botimiz orqali qondirishingiz mumkin!
+🤨 Qanday deysizmi?
+Juda oddiy shunchaki ''Buyurtma berish'' buyrug'ini botga yuborasiz kerakli ma'lumotlarni kiritasiz va bo'ldi tez orada</i> $channel <i>kanalimizdagi a'zolardan biri (dasturchilar) albatta siz bilan bog'lanishadi va talabingiz qondiriladi ✅</i>
+<b>🎩 Batafsil :</b> tg-bots.tk rasmiy web sahifasida",
+'parse_mode'=>'html',
+]);
+}
+if($tx=="Statistika"){
+$group = file_get_contents("gruppa.db");
+$privates = file_get_contents("lichka.db");
+$lich = substr_count($privates,"n");
+$guruh = substr_count($group,"n");
+$obshiy = $lich + $guruh;
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"<b>👤 Lichkalar : </b><code>$lich</code><b> ta
+👥 Guruhlar : </b><code>$guruh</code><b> ta
+🦾 Jami : </b><code>$obshiy</code><b> ta</b>",
+'parse_mode'=>'html',
+'reply_markup'=>$none,
+]);
+}
+if($tx=="/admin" and $cid=="$admin" or $tx=="/admin" and $cid=="$admin2"){
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"👋 <b>Assalomu alaykum $name adminlar paneliga xush kelibsiz!</b>",
+'parse_mode'=>'html',
+'reply_markup'=>$admins,
+]);
+}
+if($tx=="O‘chirish | $stat" and $cid=="$admin" or $tx=="O‘chirish | $stat" and $cid=="$admin2"){
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"👇 <b>Kerakli bo‘limni tanlang:</b>",
+'parse_mode'=>'html',
+'reply_markup'=>$status,
+]);
+}
+if($tx=="🔒 O'chirish" and $cid=="$admin" or $tx=="🔒 O'chirish" and $cid=="$admin2"){
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"✅ <b>O‘chirildi:</b>",
+'parse_mode'=>'html',
+'reply_markup'=>$admins,
+]);
+file_put_contents("base/bot-holati.dat","OFF");
+file_put_contents("base/holat.dat","OFF");
+}
+if($tx=="🔓 Yoqish" and $cid=="$admin" or $tx=="🔓 Yoqish" and $cid=="$admin2"){
+bot('sendMessage',[
+'chat_id'=>$cid,
+'text'=>"✅ <b>Yoqildi:</b>",
+'parse_mode'=>'html',
+'reply_markup'=>$admins,
+]);
+file_put_contents("base/bot-holati.dat","ON");
+file_put_contents("base/holat.dat","on");
+}
